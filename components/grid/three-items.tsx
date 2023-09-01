@@ -33,14 +33,14 @@ export async function ThreeItemGrid() {
         <div className="mt-10 grid grid-cols-12 gap-4">
           <div className="col-span-12 md:col-span-5">
             <div className="flex">
-              <Link href="/">
+              <Link href="/search">
                 <button className="group flex items-center space-x-2 rounded-full bg-black px-6 py-3.5 text-white">
                   <span>Show now</span>
                   <ArrowUpRightIcon className="w-4 transition-all duration-200 group-hover:scale-125" />
                 </button>
               </Link>
             </div>
-            <Link href="/" className="group h-full w-full">
+            <Link href={`/product/${firstProduct.handle}`} className="group h-full w-full">
               <div className="relative mt-8 h-[500px] w-full rounded-3xl">
                 <FeaturedItem
                   src={firstProduct.featuredImage.url}
@@ -55,7 +55,7 @@ export async function ThreeItemGrid() {
           </div>
           <div className="col-span-12 flex min-h-[500px] flex-col space-y-4 md:col-span-3 md:h-full">
             {/* <div className='relative w-full h-1/2 rounded-3xl'> */}
-            <Link href="/" className="h-full w-full">
+            <Link href={`/product/${secondProduct.handle}`} className="h-full w-full">
               <FeaturedItem
                 src={secondProduct.featuredImage.url}
                 alt={secondProduct.title}
@@ -76,7 +76,7 @@ export async function ThreeItemGrid() {
             </div>
           </div>
           <div className="col-span-12 min-h-[500px] w-full md:col-span-4 md:h-full">
-            <Link href="/" className="group h-full w-full">
+            <Link href={`/product/${thirdProduct.handle}`} className="group h-full w-full">
               <FeaturedItem
                 src={thirdProduct.featuredImage.url}
                 alt={thirdProduct.title}

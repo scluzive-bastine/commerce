@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { SortFilterItem } from 'lib/constants';
 import { createUrl } from 'lib/utils';
@@ -18,16 +19,11 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
 
   return (
     <li className="mt-2 flex text-black dark:text-white" key={item.title}>
-      <DynamicTag
-        href={createUrl(item.path, newParams)}
-        className={clsx(
-          'w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100',
-          {
-            'underline underline-offset-4': active
-          }
-        )}
-      >
-        {item.title}
+      <DynamicTag href={createUrl(item.path, newParams)} className={clsx('flex w-full space-x-2')}>
+        <span className="flex h-5 w-5 items-center justify-center border border-black p-1">
+          {active ? <CheckIcon className="w-3" /> : null}
+        </span>
+        <span>{item.title}</span>
       </DynamicTag>
     </li>
   );
@@ -52,11 +48,12 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
       <DynamicTag
         prefetch={!active ? false : undefined}
         href={href}
-        className={clsx('w-full hover:underline hover:underline-offset-4', {
-          'underline underline-offset-4': active
-        })}
+        className={clsx('flex w-full space-x-2')}
       >
-        {item.title}
+        <span className="flex h-5 w-5 items-center justify-center border border-black p-1">
+          {active ? <CheckIcon className="w-3" /> : null}
+        </span>
+        <span>{item.title}</span>
       </DynamicTag>
     </li>
   );

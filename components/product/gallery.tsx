@@ -28,72 +28,67 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
 
   return (
     <>
-      <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden">
-        {images[imageIndex] && (
-          <Image
-            className="h-full w-full object-contain"
-            fill
-            sizes="(min-width: 1024px) 66vw, 100vw"
-            alt={images[imageIndex]?.altText as string}
-            src={images[imageIndex]?.src as string}
-            priority={true}
-          />
-        )}
+      <div className="grid grid-cols-12 gap-2 lg:gap-4">
+        <div className="relative col-span-8 aspect-square h-full max-h-[550px] w-full overflow-hidden">
+          {images[imageIndex] && (
+            <Image
+              className="h-full w-full object-contain"
+              fill
+              sizes="(min-width: 1024px) 66vw, 100vw"
+              alt={images[imageIndex]?.altText as string}
+              src={images[imageIndex]?.src as string}
+              priority={true}
+            />
+          )}
 
-        {images.length > 1 ? (
-          <div className="absolute bottom-[15%] flex w-full justify-center">
-            <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur dark:border-black dark:bg-neutral-900/80">
-              <Link
-                aria-label="Previous product image"
-                href={previousUrl}
-                className={buttonClassName}
-                scroll={false}
-              >
-                <ArrowLeftIcon className="h-5" />
-              </Link>
-              <div className="mx-1 h-6 w-px bg-neutral-500"></div>
-              <Link
-                aria-label="Next product image"
-                href={nextUrl}
-                className={buttonClassName}
-                scroll={false}
-              >
-                <ArrowRightIcon className="h-5" />
-              </Link>
+          {images.length > 1 ? (
+            <div className="absolute bottom-[15%] flex w-full justify-center">
+              <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur dark:border-black dark:bg-neutral-900/80">
+                <Link
+                  aria-label="Previous product image"
+                  href={previousUrl}
+                  className={buttonClassName}
+                  scroll={false}
+                >
+                  <ArrowLeftIcon className="h-5" />
+                </Link>
+                <div className="mx-1 h-6 w-px bg-neutral-500"></div>
+                <Link
+                  aria-label="Next product image"
+                  href={nextUrl}
+                  className={buttonClassName}
+                  scroll={false}
+                >
+                  <ArrowRightIcon className="h-5" />
+                </Link>
+              </div>
             </div>
-          </div>
+          ) : null}
+        </div>
+        {images.length > 1 ? (
+          <ul className="col-span-4 flex flex-col space-y-4">
+            {images.map((image, index) => {
+              const isActive = index === imageIndex;
+              const imageSearchParams = new URLSearchParams(searchParams.toString());
+
+              imageSearchParams.set('image', index.toString());
+
+              return (
+                <li key={image.src} className="relative h-20 w-full md:h-28 md:w-28">
+                  <Link
+                    aria-label="Enlarge product image"
+                    href={createUrl(pathname, imageSearchParams)}
+                    scroll={false}
+                    className="relative h-full w-full"
+                  >
+                    <GridTileImage alt={image.altText} src={image.src} fill active={isActive} />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         ) : null}
       </div>
-
-      {images.length > 1 ? (
-        <ul className="my-12 flex items-center justify-center gap-2 overflow-auto py-1 lg:mb-0">
-          {images.map((image, index) => {
-            const isActive = index === imageIndex;
-            const imageSearchParams = new URLSearchParams(searchParams.toString());
-
-            imageSearchParams.set('image', index.toString());
-
-            return (
-              <li key={image.src} className="h-20 w-20">
-                <Link
-                  aria-label="Enlarge product image"
-                  href={createUrl(pathname, imageSearchParams)}
-                  scroll={false}
-                  className="h-full w-full"
-                >
-                  <GridTileImage
-                    alt={image.altText}
-                    src={image.src}
-                    width={80}
-                    height={80}
-                    active={isActive}
-                  />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      ) : null}
     </>
   );
 }
