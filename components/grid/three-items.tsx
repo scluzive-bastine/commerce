@@ -18,12 +18,12 @@ export async function ThreeItemGrid() {
       <section className="mx-auto max-w-screen-2xl px-4 pt-10 md:pt-20">
         <div className="grid grid-cols-12 items-center gap-8">
           <div className="col-span-12 md:col-span-7">
-            <h1 className="max-w-screen-xl text-3xl font-medium text-black dark:text-neutral-200 md:text-5xl md:leading-[68px]">
+            <h1 className="max-w-screen-xl text-4xl font-medium text-black dark:text-neutral-200 xl:text-5xl xl:leading-[68px]">
               Crafted Elegance, Where Simplicity Becomes Extraordinary
             </h1>
           </div>
           <div className="col-span-12 md:col-span-5">
-            <h1 className="max-w-screen-xl text-sm font-normal text-black dark:text-neutral-200 md:text-xl md:leading-[32px]">
+            <h1 className="max-w-screen-xl text-sm font-normal text-black dark:text-neutral-200 xl:text-xl xl:leading-[32px]">
               Discover the art of refined shopping, our curated collection celebrates the beauty of
               simplicity in every click. Explore now and experience sophistication in every detail
             </h1>
@@ -31,7 +31,7 @@ export async function ThreeItemGrid() {
         </div>
 
         <div className="mt-10 grid grid-cols-12 gap-4">
-          <div className="col-span-12 md:col-span-5">
+          <div className="col-span-12 xl:col-span-5">
             <div className="flex">
               <Link href="/search">
                 <button className="group flex items-center space-x-2 rounded-full bg-black px-6 py-3.5 text-white">
@@ -53,7 +53,7 @@ export async function ThreeItemGrid() {
               </div>
             </Link>
           </div>
-          <div className="col-span-12 flex min-h-[500px] flex-col space-y-4 md:col-span-3 md:h-full">
+          <div className="col-span-12 flex min-h-[500px] flex-col space-y-4 md:h-full xl:col-span-3">
             {/* <div className='relative w-full h-1/2 rounded-3xl'> */}
             <Link href={`/product/${secondProduct.handle}`} className="h-full w-full">
               <FeaturedItem
@@ -75,7 +75,7 @@ export async function ThreeItemGrid() {
               </div>
             </div>
           </div>
-          <div className="col-span-12 min-h-[500px] w-full md:col-span-4 md:h-full">
+          <div className="col-span-12 min-h-[500px] w-full md:h-full  xl:col-span-4">
             <Link href={`/product/${thirdProduct.handle}`} className="group h-full w-full">
               <FeaturedItem
                 src={thirdProduct.featuredImage.url}

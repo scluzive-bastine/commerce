@@ -4,6 +4,7 @@ import Trending from 'components/grid-trending';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import TwoProducts from 'components/grid/two-items';
 import Footer from 'components/layout/footer';
+import VideoBanner from 'components/video-banner';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -23,6 +24,7 @@ export default async function HomePage() {
       <Banner />
       <Trending />
       <Suspense>
+        <VideoBanner />
         <Carousel />
         <Suspense>
           <Footer />

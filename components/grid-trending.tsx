@@ -11,7 +11,10 @@ const Trending = async () => {
   return (
     <div className="mx-auto grid max-w-screen-2xl grid-cols-12 gap-4 px-4">
       {products.map((product, i) => (
-        <div className="relative col-span-6 md:col-span-3" key={`${product.handle}${i}`}>
+        <div
+          className="relative col-span-6 md:col-span-4 xl:col-span-3"
+          key={`${product.handle}${i}`}
+        >
           <Link href={`/product/${product.handle}`}>
             <ProductItem
               label={product.title}

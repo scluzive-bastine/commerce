@@ -8,7 +8,7 @@ const TwoProducts = () => {
     <section className="mx-auto mt-20 grid max-w-screen-2xl grid-cols-12 gap-8 px-4">
       <div className="col-span-12 md:col-span-6">
         <Link href="/" className="group">
-          <div className="relative min-h-[500px] w-full rounded-3xl md:h-[800px]">
+          <div className="relative min-h-[500px] w-full rounded-3xl xl:h-[800px]">
             <Image className="h-full w-full rounded-3xl object-cover" fill alt="image" src={hmbg} />
             <div className="absolute bottom-10 left-10">
               <h1 className="text-xl font-normal text-white md:text-3xl">Shop Hoddies for $20</h1>
@@ -22,7 +22,7 @@ const TwoProducts = () => {
       </div>
       <div className="col-span-12 md:col-span-6">
         <Link href="/" className="group">
-          <div className="relative min-h-[500px] w-full rounded-3xl md:h-[800px]">
+          <div className="relative min-h-[500px] w-full rounded-3xl xl:h-[800px]">
             <Image
               className="h-full w-full rounded-3xl object-cover"
               fill

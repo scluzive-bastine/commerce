@@ -14,7 +14,7 @@ const RelatedProduct = ({
 }) => {
   return (
     <div className="group relative h-full">
-      <div className="relative h-[300px] w-full md:h-[300px]">
+      <div className="relative h-[300px] w-full md:h-[250px] xl:h-[300px]">
         <Image className="h-full w-full object-cover" alt={label} fill src={src} />
         <div className="absolute bottom-5 hidden w-full justify-center transition-all ease-linear group-hover:flex md:bottom-10">
           <button className=" w-2/3 bg-black p-3 text-xs font-bold uppercase text-white md:p-4 md:text-sm">
